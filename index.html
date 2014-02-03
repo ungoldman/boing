@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>boing</title>
+  <style>
+    html, body {
+      background: #103;
+    }
+    .wrap {
+      margin-top: 75px;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+
+      background: #4162A8;
+      border-top: 1px solid #38538C;
+      border-right: 1px solid #1F2D4D;
+      border-bottom: 1px solid #151E33;
+      border-left: 1px solid #1F2D4D;
+
+      border-radius: 60px;
+      box-shadow: 0 1px 10px 1px #5C8BEE inset,
+                  0px 1px 0 #1D2C4D,
+                  0 6px 0px #1F3053,
+                  0 8px 4px 1px #111;
+
+      color: white;
+      cursor: pointer;
+      font: bold 50px "helvetica neue", helvetica, arial, sans-serif;
+      line-height: 1;
+      padding: 50px 0;
+      text-align: center;
+      text-shadow: 0px -1px 1px #1E2D4D;
+      width: 100px;
+
+      background-clip: padding-box;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0px 20px 1px #87ADFF inset,
+                  0px 1px 0 #1D2C4D,
+                  0 6px 0px #1F3053,
+                  0 8px 4px 1px #111;
+    }
+
+    .btn:active {
+      top: 6px;
+      box-shadow: 0 1px 10px 1px #5C8BEE inset,
+                  0 1px 0 #1D2C4D,
+                  0 2px 0 #1F3053,
+                  0 4px 1px 1px #111;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="btn"></a>
+  </div>
+  <audio src="boing.wav" preload="auto"></audio>
+  <script>
+    var Boing = function (element) {
+      var audio = document.querySelector('audio');
+      this.handleEvent = function (event) {
+        event.preventDefault();
+        audio.load();
+        audio.play();
+      };
+
+      element.addEventListener('ontouchstart', this, false);
+      element.addEventListener('click', this, false);
+    };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+      var btn = document.querySelector('.btn');
+      new Boing(btn);
+    });
+  </script>
+</body>
+</html>
