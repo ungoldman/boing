@@ -1,4 +1,4 @@
-# Boing
+# [Boing](https://ungoldman.github.io/boing)
 
 A big blue button that makes a "boing" sound when you click it.
 
