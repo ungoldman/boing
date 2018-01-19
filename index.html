@@ -70,21 +70,28 @@
   <audio src="boing.wav" preload="auto"></audio>
   <script>
     var Boing = function (element) {
-      var audio = document.querySelector('audio');
-      this.handleEvent = function (event) {
-        event.preventDefault();
-        audio.load();
-        audio.play();
-      };
+      var audio = document.querySelector('audio')
+      var body = document.querySelector('body')
 
-      element.addEventListener('ontouchstart', this, false);
-      element.addEventListener('click', this, false);
-    };
+      this.handleEvent = function (event) {
+        event.preventDefault()
+        audio.load()
+        audio.play()
+        body.style = 'background: ' + randomColor()
+      }
+
+      element.addEventListener('ontouchstart', this, false)
+      element.addEventListener('click', this, false)
+    }
 
     document.addEventListener('DOMContentLoaded', function(event) {
-      var btn = document.querySelector('.btn');
-      new Boing(btn);
+      var btn = document.querySelector('.btn')
+      new Boing(btn)
     });
+
+    function randomColor () {
+      return '#' + ('000000' + Math.floor(Math.random()*16777215).toString(16)).slice(-6)
+    }
   </script>
 </body>
 </html>
